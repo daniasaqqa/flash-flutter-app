@@ -40,30 +40,32 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flashlight'),
-        ),
-        body: Center(
-            child: Column(
+        
+    
+        body:
+             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Visibility(
                 visible: _isVisible,
-                child: RaisedButton(
-                  child: Text('Turn on'),
+                child: FlatButton(
+                  child: Image.asset("assets/images/flash_off.png",width: double.infinity,height:  500,fit: BoxFit.contain,),
+
                   onPressed: () {
                     showToast();
                     Flashlight.lightOn();
                   },
                 ),
-                replacement: RaisedButton(
-                  child: Text('Turn off'),
+                replacement: FlatButton(
+                  child: Image.asset("assets/images/flash_on.png",width: double.infinity,height: 800,fit: BoxFit.cover,),
                   onPressed: () {
                     showToast();
                     Flashlight.lightOff();
                   },
                 ))
           ],
-        )),
+        ),
       ),
     );
   }
